@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true"
+            android:layout_width="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/form"
+                    android:tint="@color/foregroundColor"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="22sp"
+                    android:padding="5dp"
+                    android:textColor="@color/foregroundColor"
+                    android:text="Create a new Form"
+                    android:fontFamily="sans-serif-medium"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:isScrollContainer="true"
+                android:background="@drawable/rectangle"
+                android:layout_marginTop="115dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/edittext1"
+                    android:hint="Add a value"
+                    android:gravity="top"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edittext2"
+                    android:layout_marginTop="40dp"
+                    android:hint="Add a value"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edittext3"
+                    android:layout_marginTop="80dp"
+                    android:hint="Add a value"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edittext4"
+                    android:layout_marginTop="120dp"
+                    android:hint="Add a value"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edittext5"
+                    android:layout_marginTop="160dp"
+                    android:hint="Add a value"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edittext6"
+                    android:layout_marginTop="200dp"
+                    android:hint="Add a value"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="400dp"
+                android:layout_marginBottom="70dp"
+                android:padding="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/formName"
+                    android:hint="Form Name..."/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="450dp"
+                android:padding="10dp"
+                android:layout_marginBottom="20dp"
+                >
+                <Button
+                    android:layout_width="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/foregroundColor"
+                    android:text="Save"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:onClick="saveForm"/>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+</ScrollView>
