@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Build;
@@ -32,7 +33,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText textArray[] = new EditText[6];
+    EditText textArray[] = new EditText[5];
     EditText editText2;
     EditText editText3;
     EditText editText4;
@@ -93,32 +94,43 @@ public class MainActivity extends AppCompatActivity {
     public void saveForm(View view) {
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             if( isExternalStorageWritable() ) {
-                String fileText = "";
 
-                for(int i = 0; i < textArray.length; i++) {
-                    if(textArray[i] != null) {
-                        String newText = textArray[i].getText().toString();
-                        if(newText.length() > 0) {
-                            fileText = fileText + newText + "\n";
-                        }
-                    }
-                }
                 PdfDocument pdfDocument = new PdfDocument();
-                PdfDocument.PageInfo pi = new PdfDocument.PageInfo.Builder(100,200,1).create();
+                PdfDocument.PageInfo pi = new PdfDocument.PageInfo.Builder(200,200,1).create();
                 PdfDocument.Page page = pdfDocument.startPage(pi);
                 Canvas canvas = page.getCanvas();
                 Paint paint = new Paint();
                 paint.setColor(Color.parseColor("#FFFFFF"));
                 canvas.drawPaint(paint);
+                paint.setColor(Color.BLACK);
+                paint.setTypeface(Typeface.create("Arial",Typeface.NORMAL));
+                int fontSize = 14;
+                paint.setTextSize(fontSize);
+                paint.setTextAlign(Paint.Align.LEFT);
+
 
                 if(image != null) {
                     image = Bitmap.createScaledBitmap(image, image.getWidth(), image.getHeight(), true);
-                    paint.setColor(Color.BLACK);
                     canvas.drawBitmap(image,0,0,null);
-                    canvas.drawText(fileText, 0, image.getHeight(), paint);
+                    for(int i = 0; i < textArray.length; i++) {
+                        if(textArray[i] != null) {
+                            String newText = textArray[i].getText().toString();
+                            if(newText.length() > 0) {
+                                canvas.drawText(newText, 10, (image.getHeight() + i * fontSize), paint);
+                            }
+                        }
+                    }
                     pdfDocument.finishPage(page);
                 } else {
-                    canvas.drawText(fileText, 0, 0, paint);
+                    for(int i = 0; i < textArray.length; i++) {
+                        if(textArray[i] != null) {
+                            String newText = textArray[i].getText().toString();
+                            if(newText.length() > 0) {
+                                int line = i + 1;
+                                canvas.drawText(newText, 10, (line * fontSize), paint);
+                            }
+                        }
+                    }
                     pdfDocument.finishPage(page);
                 }
 
